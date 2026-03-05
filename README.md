@@ -1,4 +1,4 @@
-# AI Code Reviewer
+﻿# AI Code Reviewer
 
 A complete, production-ready GitHub Action that automatically reviews pull requests using OpenAI's GPT-4.
 
@@ -53,12 +53,12 @@ jobs:
 | `style_guide` | Optional | `none` | "none", "google", "airbnb", "pep8", "standard" |
 | `max_files` | Optional | `20` | Max number of changed files to review per PR |
 | `exclude_patterns` | Optional | `*.md,*.txt,*.lock` | Glob patterns to skip |
-| `line_comment_threshold`| Optional | `0.6` | Confidence threshold (0–1) |
+| `line_comment_threshold`| Optional | `0.6` | Confidence threshold (0-1) |
 
 ## Example Output
 
 *(Placeholder for screenshot)*
-The AI posts inline comments on specific lines of code, pointing out potential bugs, performance flaws, and code clarity issues. It also leaves a summary comment on the PR itself.
+The AI posts inline comments on specific lines of code, pointing out potential bugs, performance flaws and code clarity issues. It also leaves a summary comment on the PR itself.
 
 ## Local Development
 
