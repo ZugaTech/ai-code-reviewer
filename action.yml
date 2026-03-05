@@ -1,0 +1,36 @@
+name: 'AI Code Reviewer'
+description: 'Automatically reviews PRs using GPT-4 and posts inline GitHub comments'
+inputs:
+  github_token:
+    description: 'GitHub token for API calls'
+    required: true
+  openai_api_key:
+    description: 'OpenAI API key'
+    required: true
+  model:
+    description: 'Which OpenAI model to use'
+    required: false
+    default: 'gpt-4o'
+  strictness:
+    description: 'One of "low", "medium", "high" — controls how aggressively the AI critiques code'
+    required: false
+    default: 'medium'
+  style_guide:
+    description: 'One of "none", "google", "airbnb", "pep8", "standard" — injects style guide context into the prompt'
+    required: false
+    default: 'none'
+  max_files:
+    description: 'Max number of changed files to review per PR'
+    required: false
+    default: '20'
+  exclude_patterns:
+    description: 'Glob patterns to skip'
+    required: false
+    default: '*.md,*.txt,*.lock'
+  line_comment_threshold:
+    description: 'Confidence threshold (0–1) for posting a line-level comment vs. a general comment'
+    required: false
+    default: '0.6'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

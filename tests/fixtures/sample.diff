@@ -1,0 +1,14 @@
+diff --git a/src/main.py b/src/main.py
+index e69de29..d95f3ad 100644
+--- a/src/main.py
++++ b/src/main.py
+@@ -1,4 +1,5 @@
+ def hello_world():
+-    print("Hello")
++    print("Hello World")
++    return True
+ 
+diff --git a/binary.bin b/binary.bin
+new file mode 100644
+index 0000000..e69de29
+Binary files /dev/null and b/binary.bin differ
