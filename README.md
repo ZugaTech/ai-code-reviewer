@@ -5,16 +5,16 @@ A complete, production-ready GitHub Action that automatically reviews pull reque
 ## Architecture
 
 ```
-   GitHub PR     →   GitHub Action   →   AI Code Reviewer
- (Code Pushed)       (ai-review.yml)
-                           ↓
-                   Extract Diff (httpx)
-                           ↓
-                Parse Hunks & Split (tiktoken)
-                           ↓
-               OpenAI API (JSON Output format)
-                           ↓
-            Post Inline Comments + PR Summary Summary
+ GitHub PR → GitHub Action → AI Code Reviewer
+ (Code Pushed) (ai-review.yml)
+ ↓
+ Extract Diff (httpx)
+ ↓
+ Parse Hunks & Split (tiktoken)
+ ↓
+ OpenAI API (JSON Output format)
+ ↓
+ Post Inline Comments + PR Summary Summary
 ```
 
 ## Quickstart
@@ -24,22 +24,22 @@ Add this to `.github/workflows/ai-review.yml` in your repo:
 ```yaml
 name: AI Code Review
 on:
-  pull_request:
-    types: [opened, synchronize]
+ pull_request:
+ types: [opened, synchronize]
 
 jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+ review:
+ runs-on: ubuntu-latest
+ steps:
+ - name: Checkout Repository
+ uses: actions/checkout@v4
 
-      - name: AI Code Reviewer
-        uses: your-org/ai-code-reviewer@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
-          model: "gpt-4o"
+ - name: AI Code Reviewer
+ uses: your-org/ai-code-reviewer@v1
+ with:
+ github_token: ${{ secrets.GITHUB_TOKEN }}
+ openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+ model: "gpt-4o"
 ```
 
 ## Inputs
@@ -65,7 +65,7 @@ The AI posts inline comments on specific lines of code, pointing out potential b
 ```bash
 # Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
